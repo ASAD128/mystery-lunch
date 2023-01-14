@@ -22,7 +22,6 @@ class Admin::DepartmentsController < ApplicationController
   # POST /admin/departments
   def create
     @admin_department = Department.new(admin_department_params)
-
     if @admin_department.save
       redirect_to admin_department_url(@admin_department), notice: 'Department was successfully created.'
     else
@@ -53,6 +52,6 @@ class Admin::DepartmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_department_params
-      params.fetch(:admin_department, {})
+      params.fetch(:department, {}).permit(:name)
     end
 end

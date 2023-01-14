@@ -1,25 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Admin Employees</h1>
+  <h1>Admin Employees</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admin_employees.each do |admin_employee| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to 'Show', admin_employee %></td>
-        <td><%= link_to 'Edit', edit_admin_employee_path(admin_employee) %></td>
-        <td><%= link_to 'Destroy', admin_employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @admin_employees.each do |admin_employee| %>
+        <tr>
+          <td><%= admin_employee.name %></td>
+          <td><%= admin_employee.department_id %></td>
+          <td><%= link_to 'Show', admin_employee_url(admin_employee) %></td>
+          <td><%= link_to 'Edit', edit_admin_employee_path(admin_employee) %></td>
+          <td><%= link_to 'Destroy', admin_employee_url(admin_employee), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Admin Employee', new_admin_employee_path %>
+  <br>
+
+  <%= link_to 'New Admin Employee', new_admin_employee_path, class: "btn btn-primary" %>
+</div>

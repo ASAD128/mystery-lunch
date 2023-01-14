@@ -14,3 +14,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/mystery-lunch-app
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true

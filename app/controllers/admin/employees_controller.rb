@@ -24,7 +24,7 @@ class Admin::EmployeesController < ApplicationController
     @admin_employee = Employee.new(admin_employee_params)
 
     if @admin_employee.save
-      redirect_to admin_department_url(@admin_employee), notice: 'Employee was successfully created.'
+      redirect_to admin_employee_url(@admin_employee), notice: 'Employee was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::EmployeesController < ApplicationController
   # PATCH/PUT /admin/employees/1
   def update
     if @admin_employee.update(admin_employee_params)
-      redirect_to admin_department_url(@admin_employee), notice: 'Employee was successfully updated.'
+      redirect_to admin_employee_url(@admin_employee), notice: 'Employee was successfully updated.'
     else
       render :edit
     end
@@ -53,6 +53,6 @@ class Admin::EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_employee_params
-      params.fetch(:admin_employee, {})
+      params.fetch(:employee, {}).permit(:name, :department_id)
     end
 end
