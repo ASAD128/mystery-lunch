@@ -27,6 +27,9 @@ Rails.application.configure do
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
+  # Store uploaded files on the local file system (see config/storage.yml for options)
+  config.active_storage.service = :local
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 

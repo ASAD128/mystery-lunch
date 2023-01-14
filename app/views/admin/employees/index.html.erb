@@ -15,6 +15,9 @@
         <tr>
           <td><%= admin_employee.name %></td>
           <td><%= admin_employee.department_id %></td>
+          <% if admin_employee.image.persisted? %>
+              <td><%= image_tag(url_for(admin_employee.image.variant(resize: '100x100'))) %></td>
+          <% end %>
           <td><%= link_to 'Show', admin_employee_url(admin_employee) %></td>
           <td><%= link_to 'Edit', edit_admin_employee_path(admin_employee) %></td>
           <td><%= link_to 'Destroy', admin_employee_url(admin_employee), method: :delete, data: { confirm: 'Are you sure?' } %></td>

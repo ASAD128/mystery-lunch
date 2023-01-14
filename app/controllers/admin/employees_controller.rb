@@ -53,6 +53,6 @@ class Admin::EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_employee_params
-      params.fetch(:employee, {}).permit(:name, :department_id)
+      params.fetch(:employee, {}).permit(:name, :department_id, :image)
     end
 end
