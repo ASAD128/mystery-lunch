@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :employees
+  end
   get 'home/index'
   devise_for :users
   devise_scope :user do
