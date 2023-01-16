@@ -1,2 +1,48 @@
-<h1>Home#index</h1>
-<p>Welcome to Mystery Lunch App</p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Mystery Partners</h1>
+
+  <div class="text-right mb-3">
+    <%= form_tag(root_path, method: :get) do %>
+        <%= label_tag :year %>
+        <%= select_tag :year, options_for_select((Time.now.year-5)..Time.now.year, params[:year]), include_blank: true %>
+
+        <%= label_tag :month %>
+        <%= select_tag :month, options_for_select(1..12, params[:month]), include_blank: true %>
+
+        <%= label_tag :department %>
+        <%= select_tag :department_id, options_for_select(Department.all.map { |d| [d.name, d.id] }, params[:department_id]), include_blank: true %>
+
+        <%= submit_tag "Filter", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+     <% @mystery_partners.each do |mystery_partner| %>
+        <tr>
+          <td style="display: none;"><%= employee1 = Employee.find(mystery_partner.employee1_id) %> <td>
+          <td><%= employee1.department_id %></td>
+          <td><%= employee1.name %></td>
+          <% if employee1.image.persisted? %>
+              <td><%= image_tag(url_for(employee1.image.variant(resize: '100x100'))) %></td>
+          <% end %>
+          <td style="display: none;"><%= employee2 = Employee.find(mystery_partner.employee2_id) %></td>
+          <% if employee2.image.persisted? %>
+              <td><%= image_tag(url_for(employee2.image.variant(resize: '100x100'))) %></td>
+          <% end %>
+          <td><%= employee2.name %></td>
+          <td><%= employee2.department_id %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
