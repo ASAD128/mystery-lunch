@@ -47,6 +47,10 @@ gem 'redis', '~> 4.0'
 
 gem "sidekiq", "~> 6.5"
 
+gem 'sidekiq-scheduler', '~> 4.0', '>= 4.0.3'
+
+gem 'et-orbi', '~> 1.2', '>= 1.2.7'
+
 
 
 

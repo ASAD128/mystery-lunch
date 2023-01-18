@@ -6,6 +6,6 @@ class HomeController < ApplicationController
   private
 
   def retrieve_mystery_lunch_partners
-    MysteryMatchRetrieval.new(department_id: params[:department_id].to_i, year: params[:year].to_i, month: params[:month].to_i).call
+    MysteryMatchRetrieval.new(department_id: params[:department_id], year: params[:year], month: params[:month]).call
   end
 end

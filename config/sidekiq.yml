@@ -1,5 +1,5 @@
 ---
-max_retries: 5
+max_retries: 1
 development:
   :concurrency: 5
 staging:
