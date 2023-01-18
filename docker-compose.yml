@@ -22,7 +22,7 @@ services:
     build: .
     command: bundle exec sidekiq -C config/sidekiq.yml
     volumes:
-      - .:/food-ordering-app
+      - .:/mystery-lunch-app
     environment:
       - REDIS_URL_SIDEKIQ=redis://redis:6379/1
 

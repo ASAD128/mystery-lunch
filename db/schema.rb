@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_14_153252) do
+ActiveRecord::Schema.define(version: 2023_01_15_055004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,23 @@ ActiveRecord::Schema.define(version: 2023_01_14_153252) do
     t.integer "department_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mystery_partners", force: :cascade do |t|
+    t.integer "employee1_id", null: false
+    t.integer "employee2_id", null: false
+    t.integer "employee3_id"
+    t.integer "employee1_department_id", null: false
+    t.integer "employee2_department_id", null: false
+    t.integer "employee3_department_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee1_department_id"], name: "index_mystery_partners_on_employee1_department_id"
+    t.index ["employee1_id"], name: "index_mystery_partners_on_employee1_id"
+    t.index ["employee2_department_id"], name: "index_mystery_partners_on_employee2_department_id"
+    t.index ["employee2_id"], name: "index_mystery_partners_on_employee2_id"
+    t.index ["employee3_department_id"], name: "index_mystery_partners_on_employee3_department_id"
+    t.index ["employee3_id"], name: "index_mystery_partners_on_employee3_id"
   end
 
   create_table "users", force: :cascade do |t|
