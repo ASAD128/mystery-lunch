@@ -1,22 +1,27 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="container">
+    <div class="row spacer"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Mystery Partners</h3>
+      </div>
+      <div class="col-md-6 text-right">
+        <%= form_tag(root_path, method: :get) do %>
+            <%= label_tag :year %>
+            <%= select_tag :year, options_for_select((Time.now.year-5)..Time.now.year, params[:year]), include_blank: true %>
 
-  <h1>Mystery Partners</h1>
+            <%= label_tag :month %>
+            <%= select_tag :month, options_for_select(1..12, params[:month]), include_blank: true %>
 
-  <div class="text-right mb-3">
-    <%= form_tag(root_path, method: :get) do %>
-        <%= label_tag :year %>
-        <%= select_tag :year, options_for_select((Time.now.year-5)..Time.now.year, params[:year]), include_blank: true %>
+            <%= label_tag :department %>
+            <%= select_tag :department_id, options_for_select(Department.all.map { |d| [d.name, d.id] }, params[:department_id]), include_blank: true %>
 
-        <%= label_tag :month %>
-        <%= select_tag :month, options_for_select(1..12, params[:month]), include_blank: true %>
+            <%= submit_tag "Filter", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
 
-        <%= label_tag :department %>
-        <%= select_tag :department_id, options_for_select(Department.all.map { |d| [d.name, d.id] }, params[:department_id]), include_blank: true %>
-
-        <%= submit_tag "Filter", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+    <div class="row spacer"></div>
 
   <table class="table">
     <thead>
@@ -27,22 +32,43 @@
 
     <tbody>
      <% @mystery_partners.each do |mystery_partner| %>
+        <td style="display: none;"><%= employee1 = Employee.find(mystery_partner.employee1_id) %>
+        <td style="display: none;"><%= employee2 = Employee.find(mystery_partner.employee2_id) %>
         <tr>
-          <td style="display: none;"><%= employee1 = Employee.find(mystery_partner.employee1_id) %> <td>
-          <td><%= employee1.department_id %></td>
-          <td><%= employee1.name %></td>
-          <% if employee1.image.persisted? %>
-              <td><%= image_tag(url_for(employee1.image.variant(resize: '100x100'))) %></td>
-          <% end %>
-          <td style="display: none;"><%= employee2 = Employee.find(mystery_partner.employee2_id) %></td>
-          <% if employee2.image.persisted? %>
-              <td><%= image_tag(url_for(employee2.image.variant(resize: '100x100'))) %></td>
-          <% end %>
-          <td><%= employee2.name %></td>
-          <td><%= employee2.department_id %></td>
+          <div class="profile">
+            <div class="profile1">
+
+              <% if employee1.image.persisted? %>
+                  <%= image_tag(url_for(employee1.image.variant(resize: '300x300')), :class => "profile-img") %>
+              <% end %>
+              <div class="name">
+                <%= employee1.name %>
+              </div>
+              <div class="department">
+                <%= Department.find_by(id: employee1.department_id).name %>
+              </div>
+
+            </div>
+
+            <div class="profile2">
+
+              <% if employee2.image.persisted? %>
+                  <%= image_tag(url_for(employee2.image.variant(resize: '300x300')), :class => "profile-img") %>
+              <% end %>
+              <div class="name">
+                <%= employee2.name %>
+              </div>
+              <div class="department">
+                <%= Department.find_by(id: employee2.department_id).name %>
+              </div>
+
+            </div>
+          </div>
         </tr>
+        <div class="row spacer"></div>
+          <div class="row spacer"></div>
     <% end %>
     </tbody>
   </table>
-
+  </div>
 </div>

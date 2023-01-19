@@ -85,6 +85,8 @@ GEM
       tzinfo
     execjs (2.8.1)
     ffi (1.15.5)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     fugit (1.8.0)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -245,6 +247,7 @@ DEPENDENCIES
   byebug
   devise
   et-orbi (~> 1.2, >= 1.2.7)
+  font-awesome-rails
   image_processing (~> 1.2)
   jquery-rails
   listen (~> 3.3)

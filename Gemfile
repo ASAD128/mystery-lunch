@@ -51,6 +51,8 @@ gem 'sidekiq-scheduler', '~> 4.0', '>= 4.0.3'
 
 gem 'et-orbi', '~> 1.2', '>= 1.2.7'
 
+gem "font-awesome-rails"
+
 
 
 
