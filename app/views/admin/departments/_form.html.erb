@@ -1,16 +1,9 @@
+<div class="container">
+  <%= simple_form_for([:admin, @admin_department]) do |f| %>
+      <div class="form-group">
+        <%= f.input :name, label: "Department Name", input_html: { class: "form-control" } %>
+      </div>
 
-<%= simple_form_for([:admin, @admin_department]) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+      <%= f.button :submit, "Create Employee", class: "btn btn-primary" %>
+  <% end %>
+</div>

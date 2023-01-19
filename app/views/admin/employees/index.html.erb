@@ -20,12 +20,11 @@
           <% end %>
           <td><%= link_to 'Show', admin_employee_url(admin_employee) %></td>
           <td><%= link_to 'Edit', edit_admin_employee_path(admin_employee) %></td>
-          <td><%= link_to 'Destroy', admin_employee_url(admin_employee), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', admin_employee_url(admin_employee), data: { confirm: 'Are you sure?' , method: :delete} %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
   <br>
 
   <%= link_to 'New Admin Employee', new_admin_employee_path, class: "btn btn-primary" %>

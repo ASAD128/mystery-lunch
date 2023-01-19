@@ -1,4 +1,4 @@
-class Admin::EmployeesController < ApplicationController
+class Admin::EmployeesController < Admin::BaseController
   before_action :set_admin_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/employees

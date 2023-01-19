@@ -1,4 +1,4 @@
-class Admin::DepartmentsController < ApplicationController
+class Admin::DepartmentsController < Admin::BaseController
   before_action :set_admin_department, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/departments

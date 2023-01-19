@@ -6,10 +6,13 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_link_tag 'application', media: 'all' %>
+  <%= javascript_tag 'application', media: 'all' %>
 </head>
 
 <body class='admin'>
+<header>
+  <%= render 'layouts/navigation' %>
+</header>
 <%= yield %>
 </body>
 </html>
