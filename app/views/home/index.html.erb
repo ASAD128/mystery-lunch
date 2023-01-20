@@ -34,12 +34,15 @@
      <% @mystery_partners.each do |mystery_partner| %>
         <td style="display: none;"><%= employee1 = Employee.find(mystery_partner.employee1_id) %>
         <td style="display: none;"><%= employee2 = Employee.find(mystery_partner.employee2_id) %>
+        <td style="display: none;"><%= employee3 = Employee.find_by(id: mystery_partner.employee3_id) %>
+        <td style="display: none;"><%= profile_image = employee3.present? ? "profile-img3" : "profile-img" %>
+
         <tr>
           <div class="profile">
             <div class="profile1">
 
               <% if employee1.image.persisted? %>
-                  <%= image_tag(url_for(employee1.image.variant(resize: '300x300')), :class => "profile-img") %>
+                  <%= image_tag(url_for(employee1.image.variant(resize: '300x300')), :class => profile_image) %>
               <% end %>
               <div class="name">
                 <%= employee1.name %>
@@ -53,7 +56,7 @@
             <div class="profile2">
 
               <% if employee2.image.persisted? %>
-                  <%= image_tag(url_for(employee2.image.variant(resize: '300x300')), :class => "profile-img") %>
+                  <%= image_tag(url_for(employee2.image.variant(resize: '300x300')), :class => profile_image) %>
               <% end %>
               <div class="name">
                 <%= employee2.name %>
@@ -63,6 +66,21 @@
               </div>
 
             </div>
+
+            <% if employee3.present? %>
+              <div class="profile3">
+
+                <% if employee3.image.persisted? %>
+                    <%= image_tag(url_for(employee3.image.variant(resize: '300x300')), :class => profile_image) %>
+                <% end %>
+                <div class="name">
+                  <%= employee3.name %>
+                </div>
+                <div class="department">
+                  <%= Department.find_by(id: employee3.department_id).name %>
+                </div>
+              </div>
+            <% end %>
           </div>
         </tr>
         <div class="row spacer"></div>
