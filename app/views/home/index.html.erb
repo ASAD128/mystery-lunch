@@ -3,7 +3,7 @@
     <div class="row spacer"></div>
     <div class="row">
       <div class="col-md-6">
-        <h3>Mystery Partners for <%= @mystery_partners.present? ? @mystery_partners.last.created_at.strftime('%B , %Y ') : Time.now.strftime('%B , %Y ') %></h3>
+        <h3>Mystery Lunch Partners for <%= @mystery_partners.present? ? @mystery_partners.last.created_at.strftime('%B , %Y ') : Time.now.strftime('%B , %Y ') %></h3>
       </div>
       <div class="col-md-6 text-right">
         <%= form_tag(root_path, method: :get) do %>
