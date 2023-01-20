@@ -25,6 +25,7 @@ module Admin
       @admin_employee = Employee.new(admin_employee_params)
 
       if @admin_employee.save
+        add_new_employee_existing_mystery_lunch
         redirect_to admin_employee_url(@admin_employee), notice: 'Employee was successfully created.'
       else
         render :new
@@ -43,18 +44,31 @@ module Admin
     # DELETE /admin/employees/1
     def destroy
       @admin_employee.destroy
+      remove_employee_from_coming_mystery_lunch
       redirect_to admin_employees_url, notice: 'Employee was successfully destroyed.'
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_admin_employee
-        @admin_employee = Employee.find(params[:id])
-      end
 
-      # Only allow a list of trusted parameters through.
-      def admin_employee_params
-        params.fetch(:employee, {}).permit(:name, :department_id, :image)
+    def set_admin_employee
+      @admin_employee = Employee.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def admin_employee_params
+      params.fetch(:employee, {}).permit(:name, :department_id, :image)
+    end
+
+    def add_new_employee_existing_mystery_lunch
+      if MysteryPartner.count > 0
+        MysteryMatchModifier.new(employee_id: @admin_employee.id, department_id: @admin_employee.id, action: 'add').call
       end
+    end
+
+    def remove_employee_from_coming_mystery_lunch
+      if MysteryPartner.count > 0
+        MysteryMatchModifier.new(employee_id: @admin_employee.id, department_id: @admin_employee.id, action: 'delete').call
+      end
+    end
   end
 end
