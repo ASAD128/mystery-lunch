@@ -9,6 +9,9 @@ gem 'rails', '~> 6.1.7'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+
+gem 'sassc', '~> 2.1.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Use Active Model has_secure_password
@@ -56,6 +59,8 @@ gem 'sidekiq-scheduler', '~> 4.0', '>= 4.0.3'
 gem 'et-orbi', '~> 1.2', '>= 1.2.7'
 
 gem "font-awesome-rails"
+
+gem 'whenever', '~> 1.0'
 
 
 

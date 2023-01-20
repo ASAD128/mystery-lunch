@@ -1,5 +1,3 @@
-require 'sidekiq-scheduler'
-
 class MysteryLunchPartnerGeneratorWorker
   include Sidekiq::Worker
 

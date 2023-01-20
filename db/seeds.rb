@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Seeding..."
+
+User.find_or_create_by(name: 'Admin', email: 'admin@mysterylunch.com', password: 'Admin1234')
+
+puts "Seeding done."
