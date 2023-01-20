@@ -28,6 +28,7 @@ class MysteryMatchModifier
                           .where("employee1_id = ? OR employee2_id = ? OR employee3_id = ?", employee_id, employee_id, employee_id)
                           .where("created_at >= ?", Time.zone.now.beginning_of_month).last
 
+
     partner_ids = mystery_partner.slice(:employee1_id, :employee2_id, :employee3_id).map{|k,v| v}.compact
     remaining_partner_ids = partner_ids - [employee_id]
     if mystery_partner.present?

@@ -58,20 +58,24 @@ class MysteryMatchGenerator
       end
     end
 
+
     if employees.length.odd?
+
       remaining_employee = (employees.pluck(:id) - employees_with_match_found).first
-      remaining_employee_department = employees.select { |e| e.id == remaining_employee }.department_id
+      remaining_employee_department = employees.select { |e| e.id == remaining_employee }.first.department_id
+
 
       available_partners = current_mystery_lunch_partners.select do |partner|
         employees_hash[partner[0]][:department_id] != remaining_employee_department &&
         employees_hash[partner[1]][:department_id] != remaining_employee_department &&
-        last_three_months_partners_hash.try(:key?, [partner[0], remaining_employee]).nil? &&
-        last_three_months_partners_hash.try(:key?, [remaining_employee, partner[1]]).nil?
+        last_three_months_partners_hash.try(:key?, [partner[0], remaining_employee]) == false &&
+        last_three_months_partners_hash.try(:key?, [remaining_employee, partner[1]]) == false
       end
 
       new_partner = available_partners.first
 
       current_mystery_lunch_partners.delete(new_partner)
+
       current_mystery_lunch_partners.append([new_partner[0], new_partner[1], remaining_employee])
     end
 

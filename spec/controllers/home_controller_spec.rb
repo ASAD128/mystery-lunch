@@ -11,7 +11,7 @@ RSpec.describe HomeController do
   let!(:employee_3) { FactoryBot.create(:employee, department_id: department_3.id) }
   let!(:employee_4) { FactoryBot.create(:employee, department_id: department_4.id) }
   let!(:mystery_partner1) { MysteryPartner.create(employee1_id: employee_1.id, employee2_id: employee_2.id,  employee1_department_id: department_1.id, employee2_department_id: department_2.id, created_at: Time.new(2023, 1, 1)) }
-  let!(:mystery_partner3) { MysteryPartner.create(employee1_id: employee_1.id, employee2_id: employee_3.id,  employee1_department_id: department_1.id, employee2_department_id: department_3.id) }
+  let!(:mystery_partner2) { MysteryPartner.create(employee1_id: employee_1.id, employee2_id: employee_3.id,  employee1_department_id: department_1.id, employee2_department_id: department_3.id) }
 
 
 
