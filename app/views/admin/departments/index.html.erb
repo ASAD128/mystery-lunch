@@ -14,9 +14,12 @@
       <% @admin_departments.each do |admin_department| %>
         <tr>
           <td><%= admin_department.name %></td>
-          <td><%= link_to 'Show', admin_department_url(admin_department) %></td>
           <td><%= link_to 'Edit', edit_admin_department_path(admin_department) %></td>
-          <td><%= link_to 'Destroy', delete_admin_department_url(admin_department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+          <%= simple_form_for([:admin, admin_department], method: :delete) do |f| %>
+              <%= f.button :submit, "Delete Department", class: "btn btn-primary" %>
+          <% end %>
+          <td>
         </tr>
       <% end %>
     </tbody>
