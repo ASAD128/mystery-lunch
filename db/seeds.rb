@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Seeding..."
 
-User.find_or_create_by(name: 'Admin', email: 'admin@mysterylunch.com', password: 'Admin1234')
+User.find_or_create_by(email: 'admin@mysterylunch.com', encrypted_password: 'Admin1234')
 
 puts "Seeding done."
