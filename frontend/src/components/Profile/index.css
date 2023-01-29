@@ -1,0 +1,41 @@
+.profile1 {
+    height: 100%;
+    width: 50%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background-color: white;
+    filter: drop-shadow(#555555 0px 0px 5px);
+}
+
+.profile-img {
+    height: 250px;
+    width: 250px;
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: white;
+    filter: drop-shadow(#555555 0px 0px 5px);
+}
+
+.profile-img3 {
+    height: 250px;
+    width: 250px;
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: white;
+    filter: drop-shadow(#555555 0px 0px 5px);
+}
+
+
+.name {
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial, helvetica, sans-serif;
+    margin: 20px;
+}
+
+.department {
+    text-align: center;
+    font-size: 12px;
+    font-family: Arial, helvetica, sans-serif;
+    margin: 20px;
+}
