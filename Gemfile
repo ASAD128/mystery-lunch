@@ -62,6 +62,10 @@ gem "font-awesome-rails"
 
 gem 'whenever', '~> 1.0'
 
+gem 'jbuilder'
+
+gem 'rack-cors'
+
 
 
 
