@@ -1,10 +1,16 @@
-# Mystery Lunch App
+# Mystery Lunch 
+Mystery Lunch is a match making web application for corporate lunches, pretty similar concept as Random Coffee 
+
 ## Overview and Features
-- Mystery Lunch web application randomly select employees from department months to have lunch together. 
-- Application makes sure each employee selected must be from different department
-- Application also makes sure selected partners haven't had coffee together in last 3 months
-- When new employee created it got added to exiting lunch partners pair (3 people lunch)
-- When employee is deleted either it get removed from future lunch and remaining partner join existing pair
+- Mystery Lunch web application randomly selects employees from different departments every month to have lunch together. 
+- Application makes sure that each selected lunch partner belong to different department
+- Application also makes sure that selected partners haven't had coffee together in last 3 months
+
+- Admin can add or delete employees to the system
+- When admin adds a new employee it will be added to exiting lunch partners pair (3 people lunch)
+- When admin removes an employee it will be removed from future lunch and remaining partner would join an existing pair
+
+- A rake task runs every month to generate random mystery lunch partners
 
 ## Demo
 ![demo](https://user-images.githubusercontent.com/22412472/213772075-e824ab35-1657-4aed-9a65-2e9579b79f14.gif)
