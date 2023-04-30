@@ -1,5 +1,5 @@
 # Mystery Lunch 
-A web application to randomly select employees for lunch
+A simple web application to randomly select employees for lunch
 
 ## Features
 1. Mystery Lunch web application randomly selects employees from different departments every month to have lunch together. 
