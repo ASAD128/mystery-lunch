@@ -14,7 +14,9 @@ A simple web application to randomly select employees for lunch
 4. A rake task runs every month to generate random mystery lunch partners
 
 ## Demo
-![demo](https://user-images.githubusercontent.com/22412472/213772075-e824ab35-1657-4aed-9a65-2e9579b79f14.gif)
+https://github.com/ASAD128/mystery-lunch/assets/22412472/19255b32-ef5b-4681-9bce-315514eee1e8
+
+
 
 ## Models
 - *User*:
