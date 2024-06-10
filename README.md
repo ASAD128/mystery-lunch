@@ -1,5 +1,5 @@
 # Mystery Lunch 
-A simple web application to randomly select employees for lunch
+A Ruby on Rails-based full stack web application that facilitates random lunch pairings between employees from different departments
 
 ## Features
 1. Mystery Lunch web application randomly selects employees from different departments every month to have lunch together. 
